@@ -1,2 +1,3 @@
-# Trabajo-Pr-ctico-M-quina-de-Estado-Iluminaci-n
+# Trabajo-Practico-Maquina-de-Estado-Iluminacion
 M
+
