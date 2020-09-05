@@ -11,17 +11,20 @@ El sistema representa un control de iluminacion de una habitacion. Las luces van
 
 ## Código
 
-- Archivo main.c
+- Archivo main.l
 
 
 ```c
+#include "cabecera.l"
 
-
-
-
-
-
-
+int main (){
+	parametros_t para;
+	estados_t estado=apagado;
+	estados_t (*fsm[])(tempertura_t) = {f_espera, f_calentar}
+    config = inicio();
+    while(1) estado = (*fsm[estado])(para);
+  return 0;
+}
 ```
 
 - Archivo de cabecera
@@ -42,10 +45,7 @@ El sistema representa un control de iluminacion de una habitacion. Las luces van
 
 ```c
 
-
-
-
-
-
+# Tiempo configurado
+t_conf 2
 
 ```
