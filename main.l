@@ -1,10 +1,12 @@
 #include "cabecera.l"
+#include "funciones.l"
 
 int main (){
-	parametros_t para;
+	parametros_t config;
 	estados_t estado=apagado;
-	estados_t (*fsm[])(tempertura_t) = {f_espera, f_calentar}
+	config = f_inicio();
+	estados_t (*fsm[])(tempertura_t) = {f_apagado, f_encendido}
     config = inicio();
-    while(1) estado = (*fsm[estado])(para);
+    while(1) estado = (*fsm[estado])(config);
   return 0;
 }
