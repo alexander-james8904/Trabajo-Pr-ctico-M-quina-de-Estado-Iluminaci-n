@@ -16,13 +16,15 @@ El sistema representa un control de iluminacion de una habitacion. Las luces van
 
 ```c
 #include "cabecera.l"
+#include "funciones.l"
 
 int main (){
-	parametros_t para;
+	parametros_t config;
 	estados_t estado=apagado;
-	estados_t (*fsm[])(tempertura_t) = {f_espera, f_calentar}
+	config = f_inicio();
+	estados_t (*fsm[])(tempertura_t) = {f_apagado, f_encendido}
     config = inicio();
-    while(1) estado = (*fsm[estado])(para);
+    while(1) estado = (*fsm[estado])(config);
   return 0;
 }
 ```
@@ -31,13 +33,32 @@ int main (){
 
 
 ```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char * getKey(char *key)
+
+typedef emun {
+	apagado=0,
+	encendido=1
+}estados_t;
+
+typedef struct{
+	char sen;
+	char t_conf;
+}parametros_t;
 
 
+parametros_t f_inicio(void);
+estados_t f_apagado(parametros_t);
+estados_t f_encendido(parametros_t);
 
 
-
-
-
+char *getKey(char *key);
+char LeerSensor(void);
+parametros_t LeerConf(char*);
+void encendido(parametros_t);
 ```
 
 - Archivo de configuracion
